@@ -1,8 +1,8 @@
-Este é um guia informal baseado no que é entendido como manuseo do ORM beego.Deve declarar que não sou ninguem especialista no tema, estou aprendendo a linguagem `GO`, e quero compartilhar alguns conhecimentos adquiridos.
+Este é um guia informal baseado no que é entendido como manuseo do ORM beego.Devo declarar que não sou nenhum especialista no tema, estou aprendendo a linguagem `GO`, e quero compartilhar alguns conhecimentos adquiridos.
 ***
-Se puder fornecer quaisquer comentário ou explicações que ajude a melhorar esse guia seja bem vindo.
+Se puder fornecer quaisquer comentários ou explicações que ajude a melhorar esse guia seja bem vindo.
 ***
-Haverá alguns conceitos que se devem ter claros inicialmente para entendedimento, como o que é um ORM, o que é SQL, todos os termos relacioados com Bases de dados e todo manuseio da linguagem `GO`. Estas explicações não serão tratadas aqui, já que se podem encontrar muitas e muito boas explicações na internet, coisa que sugiro que faça antes de aprender manusear este ORM.
+Haverá alguns conceitos que se devem ter claros inicialmente para entendimento, como o que é um ORM, o que é SQL, todos os termos relacionados com Bases de dados e todo manuseio da linguagem `GO`. Estas explicações não serão tratadas aqui, já que se podem encontrar muitas e muito boas explicações na internet, coisa que sugiro que faça antes de aprender manusear este ORM.
 ***
 Para utilizar este ORM, gostaria de partir de um caso hipotético onde precisaria do uso e implementação de uma base de dados com suas respectivas tabelas, que logo utilizaremos para realizar algumas consultas e modificações, na medida que vamos precisando.
 
