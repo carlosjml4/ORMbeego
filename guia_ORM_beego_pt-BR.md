@@ -262,7 +262,7 @@ E para apagar um registro podemos usar este código:
   o.QueryTable("iventario").Filter("artigos__id", 2).RelatedSel().One(iventario)
   Println(iventario.Artigos.Descricao)
 ```
-Podems encontrar o dado `Descricao`, do artigo com `Id`2 que se encontra na tabela `iventario`, uma vez que esta tabela se encontra relacionada, pelo parâmetro `orm:rel(pk)`, que se colocou no modelo da estrutura de `Iventarios`.
+Podemos encontrar o dado `Descricao`, do artigo com `Id`2 que se encontra na tabela `iventario`, uma vez que esta tabela se encontra relacionada, pelo parâmetro `orm:rel(pk)`, que se colocou no modelo da estrutura de `Iventarios`.
 
 -. Buscando registros na tabela Iventario, com base no Id de artigos1
 ```go
