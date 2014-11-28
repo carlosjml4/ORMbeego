@@ -108,7 +108,7 @@ orm.RegisterModelWithPrefix("prefix_", new(Inventario))
 
 O nome da tabela será criado como prefix_iventario.
 ***
-Para criar as tabelas pode fazer uso do código diretamente ou usar comandos no terminal; Se deve ter em mente que faze-lo por código, então deve desativar a criação, caso contrário cada vez qeu o código for executado, será criado e sobreescreverá as tabelasno caso de ter o parâmetro `force := false`, não se sobreescreverá mas vai fazer verificação de código se a tabela existe ou não desnecessariamente.
+Para criar as tabelas pode fazer uso do código diretamente ou usar comandos no terminal; Se deve ter em mente que faze-lo por código, então deve desativar a criação, caso contrário cada vez qeu o código for executado, será criado e sobreescreverá as tabelas no caso de ter o parâmetro `force := false`, não se sobreescreverá mas vai fazer verificação de código se a tabela existe ou não desnecessariamente.
 
 Se quiser o código, usamos:
 
@@ -151,7 +151,7 @@ Então digitamos no console:
 ##OPERAÇÕES
 Para os seguintes exemplos pode optar por inserir os dados nas tabelas de forma manual pelo console mysql, ou usando phpmyadmin, se preferir graficamente. Depis explico como se pode inserir os dados mediante código.
 
-Podemos usar Inser,Update,Read e Delete, diretamente se conhecermos a chave primária:
+Podemos usar Insert,Update,Read e Delete, diretamente se conhecermos a chave primária:
 ```go
   o := orm.NewOrm()
   artigos := new(Artigos)
@@ -202,7 +202,7 @@ Este código fará o mesmo:
     Println(artigos.Id)
   }
 ```
-`ReadOrCreate` procuram combinar de acordo com o parâmetro que nós lhe demos, se prova em contrário, criar o registro.
+`ReadOrCreate` procuram combinar de acordo com o parâmetro que nós lhe demos, caso contrário, cria o registro.
 ```go
   artigos := Artigos{Descricao: "Artigo2"}
   if created, id, err := o.ReadOrCreate(&artigos, "Descricao"); err == nil {
@@ -276,18 +276,18 @@ Da mesma maneira podemo usar vários operadores, dentro das expressões da consu
 
 Os operadores compatíveis:
 
-exato / iexact igual a
-contém / icontains contém
-GT / GTE mario que / mario que ou igual a
-LT / LTE menor de / menor de ou igual a
-StartsWith / istartswith começa com
-endswith / iendswith termina com
-en
-isnull
+* exact / iexact igual a
+* contain / icontains contém
+* GT / GTE maior que / maior que ou igual a
+* LT / LTE menor de / menor de ou igual a
+* StartsWith / istartswith começa com
+* endswith / iendswith termina com
+* in
+* isnull
 
-Os operadores que começam com i ignorar caso.
+Os operadores que começam com i ignoram o caso.
 
-o uso destes operadores determinal a condição da consulta:
+o uso destes operadores determinam a condição da consulta:
 ```go
   var maps []orm.Params
   num, err := o.QueryTable("iventario").Filter("vlr_custo__gte", 100).Values(&maps)
@@ -311,7 +311,7 @@ Você pode usar duas regras de filtragem, para ter e excluir, Para usar um `and`
     }
   }
 ```
-retornará valores de Id, maiores ou iguais a 100, na Valr_Custo `y` entrada >= 40
+retornará valores de Id, maiores ou iguais a 100, na Valr_Custo `e` entrada >= 40
 
 também pode escrever:
 ```go
@@ -354,9 +354,9 @@ Para fazer consultas relacionais e fazer um join:
     }
   }
 ```
-com o código anterior fazeos uma consulta na tabela iventario, ordenado decrescente pelo "vlr_custo" e relacionaremos a tabela artigos para pegar os dados do artigo.
+com o código anterior fazemos uma consulta na tabela iventario, ordenado decrescente pelo "vlr_custo" e relacionaremos a tabela artigos para pegar os dados do artigo.
 
-Com o parâmetro "All", podemos obter somente os campso que queremos:
+Com o parâmetro "All", podemos obter somente os campos que queremos:
 ```go
 num, err := qs.OrderBy("vlr_custo").RelatedSel("artigos").All(&iventario, "id", "vlr_custo")
 ```
@@ -382,7 +382,7 @@ QueryRow: retorna um registro
     Println(artigo)
   }
 ```
-QueryRows: retorna uma fatia dos dados
+QueryRows: retorna um slice de dados
 ```go
   var artigos []Artigos
   num, err := o.Raw("SELECT id, descripcion FROM artigos WHERE id>?", 1).QueryRows(&artigos)
